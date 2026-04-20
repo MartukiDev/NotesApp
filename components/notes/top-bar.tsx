@@ -49,7 +49,7 @@ export function TopBar({
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
-            All
+            Todas
           </button>
           <button
             onClick={() => onFilterChange('date')}
@@ -59,7 +59,7 @@ export function TopBar({
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
-            Date
+            Fecha
           </button>
           <button
             onClick={() => onFilterChange('tags')}
@@ -70,7 +70,7 @@ export function TopBar({
             }`}
           >
             <Filter className="h-3 w-3" />
-            Tags
+            Etiquetas
           </button>
         </div>
         <div className="sm:ml-2 sm:border-l sm:border-border sm:pl-2 shrink-0">

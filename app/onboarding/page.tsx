@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Sparkles, BookOpen, Check } from 'lucide-react'
+import { Sparkles, BookOpen, Check, Tags, Save, Layout } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { createNotebook } from '@/lib/api/notebooks'
 import { AuthCard } from '@/components/auth/auth-card'
@@ -10,7 +10,7 @@ import { InputField } from '@/components/auth/input-field'
 import { AuthButton } from '@/components/auth/auth-button'
 import { StatusMessage } from '@/components/auth/status-message'
 
-type OnboardingStep = 1 | 2 | 3
+type OnboardingStep = 1 | 2 | 3 | 4
 
 interface StepIndicatorProps {
   currentStep: OnboardingStep
@@ -46,9 +46,9 @@ export default function OnboardingPage() {
 
   const handleNext = async () => {
     if (step === 1 && !name.trim()) return
-    if (step === 2 && !notebookName.trim()) return
+    if (step === 3 && !notebookName.trim()) return
 
-    if (step < 3) {
+    if (step < 4) {
       setStep((step + 1) as OnboardingStep)
     } else {
       setLoading(true)
@@ -85,7 +85,7 @@ export default function OnboardingPage() {
   }
 
   const handleSkip = () => {
-    if (step === 2) {
+    if (step === 3) {
       setNotebookName('Mis notas')
     }
     setStep((step + 1) as OnboardingStep)
@@ -93,7 +93,7 @@ export default function OnboardingPage() {
 
   return (
     <AuthCard>
-      <StepIndicator currentStep={step} totalSteps={3} />
+      <StepIndicator currentStep={step} totalSteps={4} />
 
       {error && <StatusMessage type="error" message={error} className="mb-4" />}
 
@@ -134,6 +134,53 @@ export default function OnboardingPage() {
         <>
           <div className="flex justify-center mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+              <Layout className="h-6 w-6 text-primary" />
+            </div>
+          </div>
+
+          <div className="text-center mb-6">
+            <h1 className="text-xl font-semibold text-foreground">
+              Descubre tus herramientas
+            </h1>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Todo lo que necesitas para organizar tu mente de forma simple.
+            </p>
+          </div>
+
+          <div className="space-y-4 mb-6 text-left">
+             <div className="flex items-start gap-3">
+               <div className="bg-primary/10 p-2 rounded-md shrink-0"><BookOpen className="w-4 h-4 text-primary" /></div>
+               <div className="min-w-0">
+                  <h3 className="text-sm font-medium">Notebooks y Journals</h3>
+                  <p className="text-xs text-muted-foreground">Agrupa tus notas libremente, o usa el modo Journal para un orden cronológico automático.</p>
+               </div>
+             </div>
+             <div className="flex items-start gap-3">
+               <div className="bg-primary/10 p-2 rounded-md shrink-0"><Tags className="w-4 h-4 text-primary" /></div>
+               <div className="min-w-0">
+                  <h3 className="text-sm font-medium">Etiquetas y Filtros</h3>
+                  <p className="text-xs text-muted-foreground">Organiza sin esfuerzo añadiendo etiquetas a tus entradas con búsqueda instantánea.</p>
+               </div>
+             </div>
+             <div className="flex items-start gap-3">
+               <div className="bg-primary/10 p-2 rounded-md shrink-0"><Save className="w-4 h-4 text-primary" /></div>
+               <div className="min-w-0">
+                  <h3 className="text-sm font-medium">Auto-guardado Mágico</h3>
+                  <p className="text-xs text-muted-foreground">No hay botón de guardar. Escribe tranquilamente y todo se sincronizará al instante en todos tus dispositivos.</p>
+               </div>
+             </div>
+          </div>
+
+          <AuthButton onClick={handleNext}>
+            Siguiente
+          </AuthButton>
+        </>
+      )}
+
+      {step === 3 && (
+        <>
+          <div className="flex justify-center mb-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
               <BookOpen className="h-6 w-6 text-primary" />
             </div>
           </div>
@@ -171,7 +218,7 @@ export default function OnboardingPage() {
         </>
       )}
 
-      {step === 3 && (
+      {step === 4 && (
         <>
           <div className="flex justify-center mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10">

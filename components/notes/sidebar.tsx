@@ -38,7 +38,7 @@ export function Sidebar({
     <aside className={`${baseClasses} ${isMobile ? mobileClasses : desktopClasses}`}>
       <div className="flex items-center gap-2 px-4 py-4">
         <PenLine className="h-5 w-5 text-foreground" />
-        <span className="text-sm font-medium">Notes</span>
+        <span className="text-sm font-medium">Notas</span>
       </div>
       <div className="flex-1 overflow-y-auto px-2 pb-4">
         <NotebookList

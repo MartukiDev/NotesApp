@@ -12,7 +12,7 @@ interface EditorProps {
 }
 
 function formatTimestamp(date: Date): string {
-  return date.toLocaleDateString('en-US', {
+  return date.toLocaleDateString('es-ES', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -65,7 +65,7 @@ export function Editor({ entry, onClose, onUpdate }: EditorProps) {
   if (!entry) {
     return (
       <div className="flex h-full items-center justify-center text-muted-foreground">
-        <p className="text-sm">Select an entry to start writing</p>
+        <p className="text-sm">Selecciona una entrada para empezar a escribir</p>
       </div>
     )
   }
@@ -88,7 +88,7 @@ export function Editor({ entry, onClose, onUpdate }: EditorProps) {
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs text-muted-foreground">
-            {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved' : ''}
+            {saveStatus === 'saving' ? 'Guardando...' : saveStatus === 'saved' ? 'Guardado' : ''}
           </span>
           <button
             onClick={onClose}
@@ -103,7 +103,7 @@ export function Editor({ entry, onClose, onUpdate }: EditorProps) {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Untitled"
+          placeholder="Sin título"
           className="w-full bg-transparent text-xl font-medium placeholder:text-muted-foreground focus:outline-none"
         />
         <div className="mt-4">
@@ -112,7 +112,7 @@ export function Editor({ entry, onClose, onUpdate }: EditorProps) {
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder="Start writing..."
+          placeholder="Empieza a escribir..."
           className="mt-4 pb-32 min-h-[500px] w-full resize-none bg-transparent text-sm leading-relaxed placeholder:text-muted-foreground focus:outline-none"
         />
       </div>

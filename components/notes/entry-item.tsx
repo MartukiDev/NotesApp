@@ -32,8 +32,8 @@ export function EntryItem({ entry, isActive, onClick, onDelete }: EntryItemProps
           isActive ? 'bg-secondary' : 'hover:bg-secondary/50'
         }`}
       >
-        <div className="flex items-start justify-between gap-2 pr-5">
-          <h3 className="text-sm font-medium leading-tight">
+        <div className="flex items-start justify-between gap-2 pr-8">
+          <h3 className="text-sm font-medium leading-tight truncate">
             {entry.title || <span className="text-muted-foreground italic">Sin título</span>}
           </h3>
           <span className="shrink-0 text-xs text-muted-foreground">
@@ -71,7 +71,7 @@ export function EntryItem({ entry, isActive, onClick, onDelete }: EntryItemProps
           onDelete()
         }}
         aria-label="Eliminar entrada"
-        className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex items-center justify-center rounded p-1 text-muted-foreground hover:text-destructive transition-colors"
+        className="absolute right-2 top-3 sm:top-2 flex md:hidden md:group-hover:flex items-center justify-center rounded p-1.5 text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
       >
         <Trash2 className="h-3.5 w-3.5" />
       </button>

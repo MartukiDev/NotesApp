@@ -83,7 +83,7 @@ function NotebookItem({
         onClick={onClick}
         onDoubleClick={() => setIsEditing(true)}
         title="Doble clic para renombrar"
-        className={`flex flex-1 min-w-0 items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm transition-colors focus:outline-none focus:ring-1 focus:ring-ring ${
+        className={`flex flex-1 min-w-0 items-center gap-2 rounded-md pl-2 pr-9 py-1.5 text-left text-sm transition-colors focus:outline-none focus:ring-1 focus:ring-ring ${
           isActive
             ? 'bg-secondary text-foreground'
             : 'text-muted-foreground hover:bg-secondary/50 hover:text-foreground'
@@ -100,7 +100,7 @@ function NotebookItem({
             onDelete()
           }}
           aria-label={`Eliminar ${notebook.name}`}
-          className="absolute right-1 hidden group-hover:flex items-center justify-center rounded p-0.5 text-muted-foreground hover:text-destructive transition-colors"
+          className="absolute right-1.5 flex md:hidden md:group-hover:flex items-center justify-center rounded p-1.5 text-muted-foreground hover:text-destructive transition-colors bg-sidebar"
         >
           <Trash2 className="h-3.5 w-3.5" />
         </button>

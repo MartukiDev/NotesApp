@@ -16,7 +16,7 @@ interface EntryListProps {
 function groupEntriesByDate(entries: Entry[]): Map<string, Entry[]> {
   const groups = new Map<string, Entry[]>()
   entries.forEach((entry) => {
-    const dateKey = entry.createdAt.toLocaleDateString('en-US', {
+    const dateKey = entry.createdAt.toLocaleDateString('es-ES', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
