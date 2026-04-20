@@ -1,0 +1,82 @@
+import type { Notebook, Entry } from './types'
+
+export const mockNotebooks: Notebook[] = [
+  { id: 'journal', name: 'Journal', isJournal: true },
+  { id: 'math', name: 'Math' },
+  { id: 'networks', name: 'Networks' },
+]
+
+export const mockEntries: Entry[] = [
+  {
+    id: '1',
+    notebookId: 'journal',
+    title: 'Morning Thoughts',
+    content: 'Started the day with a clear mind. The morning walk helped me organize my thoughts about the upcoming project deadline. Need to prioritize the core features first.',
+    tags: ['reflection', 'morning'],
+    createdAt: new Date('2024-01-15T08:30:00'),
+    updatedAt: new Date('2024-01-15T08:45:00'),
+  },
+  {
+    id: '2',
+    notebookId: 'journal',
+    title: 'Weekly Review',
+    content: 'This week was productive. Completed the network topology assignment, made progress on the calculus problem set. Next week: focus on the group project.',
+    tags: ['review', 'weekly'],
+    createdAt: new Date('2024-01-14T20:00:00'),
+    updatedAt: new Date('2024-01-14T20:30:00'),
+  },
+  {
+    id: '3',
+    notebookId: 'journal',
+    title: 'Project Ideas',
+    content: 'Brainstorming session for the semester project. Considering a distributed note-taking app with real-time sync. Need to research CRDT algorithms.',
+    tags: ['ideas', 'project'],
+    createdAt: new Date('2024-01-13T15:00:00'),
+    updatedAt: new Date('2024-01-13T16:00:00'),
+  },
+  {
+    id: '4',
+    notebookId: 'math',
+    title: 'Calculus Notes - Integration',
+    content: 'Integration by parts: ∫u dv = uv - ∫v du\n\nRemember LIATE rule for choosing u:\nL - Logarithmic\nI - Inverse trig\nA - Algebraic\nT - Trigonometric\nE - Exponential',
+    tags: ['calculus', 'integration'],
+    createdAt: new Date('2024-01-12T10:00:00'),
+    updatedAt: new Date('2024-01-12T11:30:00'),
+  },
+  {
+    id: '5',
+    notebookId: 'math',
+    title: 'Linear Algebra - Eigenvalues',
+    content: 'To find eigenvalues:\n1. Compute det(A - λI) = 0\n2. Solve the characteristic polynomial\n3. For each eigenvalue, solve (A - λI)x = 0 to find eigenvectors',
+    tags: ['linear-algebra', 'eigenvalues'],
+    createdAt: new Date('2024-01-11T14:00:00'),
+    updatedAt: new Date('2024-01-11T15:00:00'),
+  },
+  {
+    id: '6',
+    notebookId: 'networks',
+    title: 'TCP/IP Stack Overview',
+    content: 'Application Layer: HTTP, FTP, SMTP\nTransport Layer: TCP, UDP\nNetwork Layer: IP, ICMP\nLink Layer: Ethernet, Wi-Fi\n\nRemember: encapsulation adds headers at each layer.',
+    tags: ['tcp-ip', 'fundamentals'],
+    createdAt: new Date('2024-01-10T09:00:00'),
+    updatedAt: new Date('2024-01-10T10:30:00'),
+  },
+  {
+    id: '7',
+    notebookId: 'networks',
+    title: 'Routing Algorithms',
+    content: 'Distance Vector vs Link State:\n\nDistance Vector (RIP):\n- Each router shares its routing table with neighbors\n- Slow convergence, count-to-infinity problem\n\nLink State (OSPF):\n- Each router floods link state info to all routers\n- Faster convergence, uses Dijkstra\'s algorithm',
+    tags: ['routing', 'algorithms'],
+    createdAt: new Date('2024-01-09T11:00:00'),
+    updatedAt: new Date('2024-01-09T12:00:00'),
+  },
+  {
+    id: '8',
+    notebookId: 'networks',
+    title: 'DNS Resolution',
+    content: 'DNS query process:\n1. Check local cache\n2. Query recursive resolver\n3. Root nameserver → TLD nameserver → Authoritative nameserver\n4. Cache the result (TTL)',
+    tags: ['dns', 'fundamentals'],
+    createdAt: new Date('2024-01-08T16:00:00'),
+    updatedAt: new Date('2024-01-08T16:45:00'),
+  },
+]
